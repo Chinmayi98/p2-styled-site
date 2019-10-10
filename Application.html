@@ -98,21 +98,77 @@
     <span id="secondWarning" class="text-danger"></span>
   </fieldset>
 
-</div>
+
 <!--end column 1-->
 
 <!--column 2 (5/12) -->
 <div class="col-md-5 mb-4">
   <button id="addButton" class="btn btn-primary" onclick=updateWithAdd()>Estimate</button>
+  <button id="wiper" class="btn btn-danger" >Clear</button>
   <hr>
   <p id="result"></p>
 
 </div>
 <!-- end column 2-->
 
-</div>
-<!-- end row 1 -->
+<!--</div>
+ end row 1 -->
 
+
+<!--
+<script>
+
+
+/* global localStorage */
+console.log('SCRIPT START')
+console.log('Declare testable functions......................')
+function mult(x, y) { return x * y }
+console.log('Defined mul=' + mult)
+console.log('Declare event listeners .......................')
+window.addEventListener('load', (event) => {
+  console.log('  Starting initialization ')
+  
+  if (localStorage.getItem('firstInput')) {
+    document.querySelector('#firstInput').value = parseInt(localStorage.firstInput)
+    console.log(`  Stored firstInput = ${localStorage.firstInput}`)
+  }
+  if (localStorage.getItem('secondInput')) {
+    document.querySelector('#secondInput').value = parseInt(localStorage.secondInput)
+    console.log(`  Stored secondInput = ${localStorage.secondInput}`)
+  }
+  console.log('  Finished initialization')
+})
+document.querySelector('#addButton').addEventListener('click', () => {
+  console.log('  Starting clicker click handler')
+  const origCount = parseInt(localStorage.getItem('countOfClicks')) || 0
+  
+  const i = parseInt(document.querySelector('#firstInput').value)
+  console.log('i=' + i)
+  const j = parseInt(document.querySelector('#secondInput').value)
+  console.log('j=' + j)
+  const ct = origCount + 1
+  const ans = ` Total space required is ${mult(i, j)} and This has been run ${ct} times.`
+  document.querySelector('#result').innerHTML = ans
+  localStorage.setItem('countOfClicks', ct)  // define a string key to store + its value
+  localStorage.setItem('firstInput', i)
+  localStorage.setItem('secondInput', j)
+  console.log('  Finished clicker click handler')
+})
+document.querySelector('#wiper').addEventListener('click', () => {
+  console.log('  Starting wiper click handler')
+  localStorage.removeItem('countOfClicks')
+  
+  localStorage.removeItem('firstInput')
+  localStorage.removeItem('secondInput')
+  console.log('  Finished wiper click handler - localStorage entries removed')
+})
+console.log('SCRIPT END')
+
+
+
+</script>
+
+-->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -121,9 +177,10 @@
   <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for this template -->
+  <!-- Custom scripts for this template-->
   <script src="js/resume.min.js"></script>
   <script src="main.js"></script>
+  
         <footer id="b">
            &copy; Chinmayi Ambati
        </footer>
