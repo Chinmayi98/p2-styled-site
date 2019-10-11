@@ -46,7 +46,9 @@
         <li class="nav-item">
           <a class="nav-link js-scroll-trigger" href="contact.html">Contact</a>
         </li>
-        
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="qunit.html">unit</a>
+          </li>
         
       </ul>
     </div>
@@ -100,14 +102,24 @@
 
 
 <!--end column 1-->
-
+<hr>
+<hr>
 <!--column 2 (5/12) -->
 <div class="col-md-5 mb-4">
   <button id="addButton" class="btn btn-primary" onclick=updateWithAdd()>Estimate</button>
   <button id="wiper" class="btn btn-danger" >Clear</button>
+  <button id="getJokeButton" class="btn btn-success">Fetch Joke</button>
+  <button id="getDataButton" class="btn btn-warning">Get Todos</button>
   <hr>
   <p id="result"></p>
 
+  <div class="col-md-4 mb-4">
+    <h3>To-do List</h3>
+    <h4>(Appears at the left)</h4>
+    <hr>
+    <ol>
+    </ol>
+  </div>
 </div>
 <!-- end column 2-->
 
@@ -115,60 +127,6 @@
  end row 1 -->
 
 
-<!--
-<script>
-
-
-/* global localStorage */
-console.log('SCRIPT START')
-console.log('Declare testable functions......................')
-function mult(x, y) { return x * y }
-console.log('Defined mul=' + mult)
-console.log('Declare event listeners .......................')
-window.addEventListener('load', (event) => {
-  console.log('  Starting initialization ')
-  
-  if (localStorage.getItem('firstInput')) {
-    document.querySelector('#firstInput').value = parseInt(localStorage.firstInput)
-    console.log(`  Stored firstInput = ${localStorage.firstInput}`)
-  }
-  if (localStorage.getItem('secondInput')) {
-    document.querySelector('#secondInput').value = parseInt(localStorage.secondInput)
-    console.log(`  Stored secondInput = ${localStorage.secondInput}`)
-  }
-  console.log('  Finished initialization')
-})
-document.querySelector('#addButton').addEventListener('click', () => {
-  console.log('  Starting clicker click handler')
-  const origCount = parseInt(localStorage.getItem('countOfClicks')) || 0
-  
-  const i = parseInt(document.querySelector('#firstInput').value)
-  console.log('i=' + i)
-  const j = parseInt(document.querySelector('#secondInput').value)
-  console.log('j=' + j)
-  const ct = origCount + 1
-  const ans = ` Total space required is ${mult(i, j)} and This has been run ${ct} times.`
-  document.querySelector('#result').innerHTML = ans
-  localStorage.setItem('countOfClicks', ct)  // define a string key to store + its value
-  localStorage.setItem('firstInput', i)
-  localStorage.setItem('secondInput', j)
-  console.log('  Finished clicker click handler')
-})
-document.querySelector('#wiper').addEventListener('click', () => {
-  console.log('  Starting wiper click handler')
-  localStorage.removeItem('countOfClicks')
-  
-  localStorage.removeItem('firstInput')
-  localStorage.removeItem('secondInput')
-  console.log('  Finished wiper click handler - localStorage entries removed')
-})
-console.log('SCRIPT END')
-
-
-
-</script>
-
--->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -180,8 +138,23 @@ console.log('SCRIPT END')
   <!-- Custom scripts for this template-->
   <script src="js/resume.min.js"></script>
   <script src="main.js"></script>
-  
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="fetch-joke.js"></script>
+  <script src="axios-data.js"></script>
+  <script src="main.test.js"></script>
         <footer id="b">
+           <!-- sticky footer with padding on y-axis (top and bottom) -->
+  <footer class="footer mt-auto py-3 bg-light">
+      <div class="container">
+        <span class="text-muted">Right-click / Inspect / Console</span>
+        &#9670;
+        <span class="text-muted"><a href="test/qunit.html">View Tests</a></span>
+        &#9670;
+        <a href="https://chinmayi98.github.io/p2-styled-site/">Demo</a>
+        &#9670;
+        <a href="https://github.com/Chinmayi98/p2-styled-site">Source</a>
+      </div>
+    </footer>
            &copy; Chinmayi Ambati
        </footer>
 
